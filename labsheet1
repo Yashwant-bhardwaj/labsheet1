@@ -1,0 +1,116 @@
+#include <iostream>
+using namespace std;
+
+void BubbleSort(int arr[], int size)
+{
+	int temp;
+	int count = 0;
+	for(int i = 0; i < size - 1; i++)
+	{
+	count++;
+	for(int j = 0; j < size - i - 1; j++)
+	{
+	count++;
+	if(arr[j] > arr[j + 1])
+	{
+	count++;
+	temp = arr[j];
+	arr[j] = arr[j + 1];
+	arr[j + 1] = temp;
+	}
+	}
+	}
+	cout <<"Number of Total steps is : " << count << endl;
+}
+void SelectionSort(int arr[],int size)
+{
+	int minimum;
+	int temp;
+	int count =0;
+	for(int i =0;i < size;i++)
+	{
+	count++;
+	minimum = i;
+	for(int j = i + 1;j < size;j++)
+	{
+	count++;
+	if(arr[j] < arr[minimum])
+	{
+	count++;
+	minimum = j;
+	}
+	}
+	temp = arr[i];
+
+	}
+	cout <<"Number of Total steps is : " << count << endl;
+}
+void InsertionSort(int arr[],int size)
+{
+	int temp;
+	int count = 0;
+	for(int i = 1; i < size;i++)
+	{
+	count++;
+	for(int j = i;j >= 0;j--)
+	{
+	count++;
+	if(arr[j] < arr[j-1])
+	{
+	count++;
+	temp = arr[j];
+	arr[j] = arr[j-1];
+	arr[j-1] = temp;
+	}
+	}
+	}
+	cout <<"Number of Total steps is : " << count << endl;
+}
+
+int main() {
+	int size;
+	cout << "Enter the size of array: ";
+	cin >> size;
+
+	int* arr = new int[size];
+
+	cout << "Enter the elements of array: ";
+	for (int i = 0; i < size; i++) {
+	cin >> arr[i];
+	}
+
+	cout << "Before sorting, array is: ";
+	for (int i = 0; i < size; i++) {
+	cout << arr[i] << " ";
+	}
+	cout << endl;
+
+	int choice;
+	cout << "Enter the choice for sorting algorithm:\n";
+	cout << "1 for Bubble Sort, 2 for Selection Sort, 3 for 
+
+	switch (choice) {
+	case 1:
+	BubbleSort(arr, size);
+	break;
+	case 2:
+	SelectionSort(arr, size);
+	break;
+	case 3:
+	InsertionSort(arr, size);
+	break;
+	default:
+	cout << "Invalid choice!" << endl;
+	delete[] arr;
+	return 1;
+	}
+
+	cout << "After sorting, array is: ";
+	for (int i = 0; i < size; i++) {
+	cout << arr[i] << " ";
+	}
+	cout << endl;
+
+	delete[] arr;
+	return 0;
+}
